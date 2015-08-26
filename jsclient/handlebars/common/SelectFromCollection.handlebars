@@ -1,0 +1,7 @@
+<label for="input-format">{{title}}</label>
+<select id="{{select-id}}" class="form-control" name="input-format">
+    <option value="">None</option>
+    {{#each models}}
+        <option value="{{this.id}}">{{this.name}}</option>
+    {{/each}}
+</select>

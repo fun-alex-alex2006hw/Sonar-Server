@@ -1,0 +1,72 @@
+/*
+ *  Sonar Specific Tweaks
+ *  Copyright 2015
+ */
+
+.jumbotron {
+    padding-bottom: 100px;
+    position: relative;
+    background: #000 url("/static/images/jumbotron-lg.jpg") center;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+@font-face {
+    font-family: "source-code-pro-black";
+    src: url("/static/fonts/SourceCodePro-Black.otf.woff") format('woff');
+}
+
+@font-face {
+    font-family: "source-code-pro-bold";
+    src: url("/static/fonts/SourceCodePro-Bold.otf.woff") format('woff');
+}
+
+@font-face {
+    font-family: "source-code-extra-light";
+    src: url("/static/fonts/SourceCodePro-ExtraLight.otf.woff") format('woff');
+}
+
+@font-face {
+    font-family: "source-code-pro-light";
+    src: url("/static/fonts/SourceCodePro-Light.otf.woff") format('woff');
+}
+
+@font-face {
+    font-family: "source-code-pro-medium";
+    src: url("/static/fonts/SourceCodePro-Medium.otf.woff") format('woff');
+}
+
+@font-face {
+    font-family: "source-code-pro";
+    src: url("/static/fonts/SourceCodePro-Regular.otf.woff") format('woff');
+}
+
+@font-face {
+    font-family: "source-code-pro-semibold";
+    src: url("/static/fonts/SourceCodePro-Semibold.otf.woff") format('woff');
+}
+
+.monospace {
+    font-family: "source-code-pro"
+}
+
+.monospace-light {
+    font-family: "source-code-pro-light"
+}
+
+#dropzone {
+    border: 2px dashed #bbb;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 25px;
+    text-align: center;
+    color: #bbb;
+}
+
+body {
+    padding-bottom: 40px;
+}

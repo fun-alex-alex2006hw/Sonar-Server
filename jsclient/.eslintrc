@@ -1,0 +1,23 @@
+{
+    "env": {
+        "browser": true
+    },
+
+    "globals": {
+        "$": true,
+        "_": true,
+        "Sonar": true,
+        "Backbone": true,
+        "Handlebars": true,
+        "Highcharts": true,
+        "module": true,
+        "saveAs": true,
+    },
+
+    "rules": {
+        "no-new": 0,
+        "no-console": 0,
+        "no-underscore-dangle": 0,
+        "global-strict": 0,
+    }
+}
