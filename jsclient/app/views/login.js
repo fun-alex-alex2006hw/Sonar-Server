@@ -48,11 +48,6 @@ Sonar.Views.Login = Sonar.Views.BaseView.extend({
         console.log("[LoginView] Login success!");
         window.localStorage.session = JSON.stringify(model.toJSON());
         window.session = model;
-
-        // Remove body splash
-        if ($(document.body).hasClass("eldrazi-splash")) {
-            $(document.body).removeClass("eldrazi-splash");
-        }
         var menu = new Sonar.Views.UserMenu({ model: window.session });
         window.menu.renderMenu(menu);
         window.router.navigate("#home", { trigger: true });

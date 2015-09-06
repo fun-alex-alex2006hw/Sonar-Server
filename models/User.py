@@ -25,8 +25,6 @@ from sqlalchemy.types import String, Unicode
 
 from models import dbsession
 from models.BaseModels import DatabaseObject
-from models.Job import Job  # Fix mapper
-from models.Organization import Organization  # Fix mapper
 from models.Permission import Permission  # Fix mapper
 
 # Constants
@@ -44,14 +42,6 @@ class User(DatabaseObject):
                                backref=backref("user", lazy="select"),
                                cascade="all,delete,delete-orphan")
 
-    jobs = relationship("Job",
-                        backref=backref("user", lazy="select"),
-                        cascade="all,delete,delete-orphan")
-
-    organizations = relationship("Organization",
-                                 backref=backref("user", lazy="select"),
-                                 cascade="all,delete,delete-orphan")
-
     @classmethod
     def all_users(cls):
         ''' Return all non-admin user objects '''
@@ -65,20 +55,6 @@ class User(DatabaseObject):
         return dbsession.query(cls).filter_by(
             _name=unicode(name)
         ).first()
-
-    @property
-    def recent_jobs(self, limit=5):
-        ''' Returns the 5 most recently created jobs '''
-        return dbsession.query(Job).filter_by(
-            user_id=self.id
-        ).order_by(desc(Job.created)).limit(limit).all()
-
-    @property
-    def history(self):
-        ''' All of the user's jobs ordered by date created '''
-        return dbsession.query(Job).filter_by(
-            user_id=self.id
-        ).order_by(desc(Job.created)).all()
 
     @property
     def permission_names(self):

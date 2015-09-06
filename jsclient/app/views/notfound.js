@@ -3,13 +3,13 @@
 
 // The AllIsDust 404 View
 // -------------------------
-Sonar.Views.NotFound = AllIsDust.Views.BaseView.extend({
+Sonar.Views.NotFound = Sonar.Views.BaseView.extend({
 
     template: Handlebars.templates.NotFound,
 
     initialize: function() {
         this.renderViewWithFade();
-        AllIsDust.Events.on("router:notfound", this.renderViewWithFade, this);
+        Sonar.Events.on("router:notfound", this.renderViewWithFade, this);
     },
 
     render: function() {

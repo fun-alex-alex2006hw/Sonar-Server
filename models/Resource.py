@@ -17,33 +17,19 @@ See the License for the specific language governing permissions and
 limitations under the License.
 '''
 
-from sqlalchemy import Column
-from sqlalchemy.orm import backref, relationship
-from sqlalchemy.types import Unicode
+from sqlalchemy import Column, ForeignKey
+from sqlalchemy.types import Unicode, Integer
 
 from models.BaseModels import DatabaseObject
 
 
-class Fingerprint(DatabaseObject):
+class Resource(DatabaseObject):
 
     ''' This class contains the resources that make up a fingerprint '''
 
-    name = Column(Unicode(128), nullable=False)
-    resources = relationship("Resource",
-                             backref=backref("fingerprint", lazy="joined"),
-                             cascade="all,delete,delete-orphan")
-
-    def to_dict(self):
-        return {
-            u'name': self.name,
-            u'fingerprints': [unicode(resource) for resource in self.resources]
-        }
+    fingerprint_id = Column(Integer, ForeignKey('fingerprint.id'),
+                            nullable=False)
+    data = Column(Unicode(2048), nullable=False)
 
     def __unicode__(self):
-        return self.name
-
-    def __str__(self):
-        return self.name.encode('ascii', 'ignore')
-
-    def __len__(self):
-        return len(self.resources)
+        return self.data
